@@ -1,0 +1,64 @@
+body {
+    background-color: black;
+}
+
+div#start-menu {
+    margin: auto;
+    padding-top: 200px;
+    padding-bottom: 200px;
+    width: 300px;
+}
+
+input#start-menu {
+    margin: auto;
+    margin-top: 70px;
+    display: block;
+    width: 300px;
+    height: 50px;
+    font-family: DeterminationSansK2;
+    font-size: 30px;
+    font-weight: bold;
+    color: coral;
+    background-color: black;
+    border: solid;
+    border-color: coral;
+    border-width: 3.5px;
+    transition: background-color 0.3s;
+}
+
+a#start-menu {
+    text-decoration: none;
+}
+
+div#developer {
+    margin: 70px;
+    text-align: center;
+}
+
+h1#developer {
+    margin-bottom: 50px;
+    text-align: center;
+    font-family: DeterminationSansK2;
+    color: white;
+}
+
+p#developer {
+    margin-top: 77px;
+    display: inline-block;
+    font-family: DeterminationSansK2;
+    font-weight: bold;
+    font-size: 22px;
+    color: white;
+}
+
+label#developer {
+    margin-right: 30px;
+    display: inline-block;
+    font-family: DeterminationSansK2;
+    font-weight: bold;
+    color: white;
+}
+
+body#play {
+    margin: 0;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>부엉이테일</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser-arcade-physics.min.js"></script>
+</head>
+<body id="play">
+    <img crossorigin src="images/고구마.png" id="enemy" style="display: none;">
+<script>
+
+class Example extends Phaser.Scene {
+    constructor () {
+        super();
+    }
+
+    preload () {
+        this.load.baseURL = 'https://github.com/hoochoo0224/owltale/';
+        this.load.image('enemy',  'angular.png');
+    }
+    
+    create () {
+        let enemy = this.add.image(100, 200, "enemy");
+    }
+
+    update() {
+
+    }
+}
+
+const config = {
+    type: Phaser.AUTO,
+    width: window.innerWidth-10,
+    height: window.innerHeight-10,
+    physics: {
+        default: 'arcade',
+        arcade: {
+            // gravity: { y: 200 }
+        }
+    },
+    scene: Example
+};
+
+const game = new Phaser.Game(config);
+
+</script>
+</body>
+</html>
