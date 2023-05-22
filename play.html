@@ -8,10 +8,9 @@
     <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser-arcade-physics.min.js"></script>
 </head>
 <body id="play">
-    <img crossorigin src="images/고구마.png" id="enemy" style="display: none;">
 <script>
 
-class Example extends Phaser.Scene {
+class EnemyTurn extends Phaser.Scene {
     constructor () {
         super();
     }
@@ -21,7 +20,7 @@ class Example extends Phaser.Scene {
     }
     
     create () {
-        let enemy = this.add.image(100, 200, "enemy");
+        let enemy = this.add.sprite(100, 200, "enemy");
     }
 
     update() {
@@ -39,10 +38,16 @@ const config = {
             // gravity: { y: 200 }
         }
     },
-    scene: Example
+    // scene: EnemyTurn
 };
 
 const game = new Phaser.Game(config);
+game.state.add("EnemyTurn", EnemyTurn);
+game.state.start("EnemyTurn");
+// game.state.add("Fight");
+// game.state.add("Act");
+// game.state.add("Item");
+// game.state.add("Mercy");
 
 </script>
 </body>
