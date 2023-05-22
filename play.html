@@ -16,11 +16,13 @@ class EnemyTurn extends Phaser.Scene {
     }
 
     preload () {
-        this.load.image('enemy',  './images/enemy.png');
+        this.load.image('enemy', './images/enemy.png');
     }
     
     create () {
         let enemy = this.add.sprite(100, 200, "enemy");
+        enemy.scale.x = 50;
+        enemy.scale.y = 50;
     }
 
     update() {
