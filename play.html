@@ -37,7 +37,7 @@ class EnemyTurn extends Phaser.Scene {
         this.wall.create(140, 400, 'wall');
         this.wall.create(50, 250, 'wall');
         this.wall.create(750, 220, 'wall');
-
+        // collider
         this.physics.add.collider(this.player, this.wall);
     }
 
