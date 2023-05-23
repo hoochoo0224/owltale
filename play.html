@@ -45,16 +45,16 @@ class EnemyTurn extends Phaser.Scene {
         this.height = window.innerHeight-10;
 
         if (this.up.isDown) {
-            player.y -= speed;
+            player.setVelocityY(speed);
         }
         if (this.down.isDown) {
-            player.y += speed;
+            player.setVelocityY(-speed);
         }
         if (this.right.isDown) {
-            player.x += speed;
+            player.setVelocityX(speed);
         }
         if (this.left.isDown) {
-            player.x -= speed;
+            player.setVelocityX(-speed);
         }
     }
 }
