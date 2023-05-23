@@ -29,7 +29,7 @@ class EnemyTurn extends Phaser.Scene {
         // player
         this.player = this.physics.add.sprite(100, 50, "player").setScale(0.1).refreshBody();
         this.player.setCollideWorldBounds(true)
-        this.player.setBounce(5);
+        this.player.setBounce(0.1);
         this.speed = 5;
         // wall
         this.wall = this.physics.add.staticGroup();
