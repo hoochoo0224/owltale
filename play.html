@@ -27,17 +27,17 @@ class EnemyTurn extends Phaser.Scene {
         this.right = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
 
         // player
-        let player = this.physics.add.sprite(100, 200, "player").setScale(0.1).refreshBody();
-        player.setBounce(0.2);
+        this.player = this.physics.add.sprite(100, 200, "player").setScale(0.1).refreshBody();
+        this.player.setBounce(0.2);
         speed = 5;
         // wall
-        let wall = this.physics.add.staticGroup();
-        wall.create(400, 590, 'wall');
-        wall.create(140, 400, 'wall');
-        wall.create(50, 250, 'wall');
-        wall.create(750, 220, 'wall');
+        // let wall = this.physics.add.staticGroup();
+        // wall.create(400, 590, 'wall');
+        // wall.create(140, 400, 'wall');
+        // wall.create(50, 250, 'wall');
+        // wall.create(750, 220, 'wall');
 
-        this.physics.add.collider(player, wall);
+        // this.physics.add.collider(player, wall);
     }
 
     update() {
@@ -45,16 +45,16 @@ class EnemyTurn extends Phaser.Scene {
         this.height = window.innerHeight-10;
 
         if (this.up.isDown) {
-            player.setVelocityY(speed);
+            this.player.setVelocityY(speed);
         }
         if (this.down.isDown) {
-            player.setVelocityY(-speed);
+            this.player.setVelocityY(-speed);
         }
         if (this.right.isDown) {
-            player.setVelocityX(speed);
+            this.player.setVelocityX(speed);
         }
         if (this.left.isDown) {
-            player.setVelocityX(-speed);
+            this.player.setVelocityX(-speed);
         }
     }
 }
