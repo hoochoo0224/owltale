@@ -32,30 +32,35 @@ class EnemyTurn extends Phaser.Scene {
         this.player.setBounce(0.1);
         this.speed = 5;
         // wall
-        this.wall = this.physics.add.staticGroup();
-        this.wall.create(400, 590, 'wall');
-        this.wall.create(140, 400, 'wall');
-        this.wall.create(50, 250, 'wall');
-        this.wall.create(750, 220, 'wall');
+        this.wall = this.physics.add.staticGroup({
+            key: "wall",
+            frameQuantity: 4
+        });
+        Phaser.Actions.PlaceOnRectangle(this.group.getChildren(), new Phaser.Geom.Rectangle(84, 84, 616, 416));
+        this.group.refresh();
+        // this.wall.create(400, 590, 'wall').setScale(0.3).refreshBody();
+        // this.wall.create(140, 400, 'wall').setScale(0.3).refreshBody();
+        // this.wall.create(50, 250, 'wall').setScale(0.3).refreshBody();
+        // this.wall.create(750, 220, 'wall').setScale(0.3).refreshBody();
         // collider
         this.physics.add.collider(this.player, this.wall);
     }
 
     update() {
         if (this.up.isDown) {
-            // player.setVelocityY(speed);
+            // this.player.setVelocityY(this.speed);
             this.player.y -= this.speed
         }
         if (this.down.isDown) {
-            // player.setVelocityY(-speed);
+            // this.player.setVelocityY(-this.speed);
             this.player.y += this.speed
         }
         if (this.right.isDown) {
-            // player.setVelocityX(speed);
+            // this.player.setVelocityX(this.speed);
             this.player.x += this.speed
         }
         if (this.left.isDown) {
-            // player.setVelocityX(-speed);
+            // this.player.setVelocityX(-this.speed);
             this.player.x -= this.speed
         }
     }
