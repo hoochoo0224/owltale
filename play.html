@@ -27,9 +27,9 @@ class EnemyTurn extends Phaser.Scene {
         this.right = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
 
         // player
-        this.player = this.physics.add.sprite(100, 50, "player").setScale(0.1).refreshBody();
+        this.player = this.physics.add.sprite((window.innerWidth-10)/2, (window.innerHeight-10)/2, "player").setScale(0.1).refreshBody();
         this.player.setCollideWorldBounds(true);
-        this.player.setBounce(0.1);
+        this.player.setImmovable();
         this.speed = 5;
         // wall
         this.wall = this.physics.add.staticGroup({
