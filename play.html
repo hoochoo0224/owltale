@@ -28,7 +28,7 @@ class EnemyTurn extends Phaser.Scene {
 
         // player
         this.player = this.physics.add.sprite(100, 50, "player").setScale(0.1).refreshBody();
-        this.player.setCollideWorldBounds(true)
+        this.player.setCollideWorldBounds(true);
         this.player.setBounce(0.1);
         this.speed = 5;
         // wall
@@ -73,7 +73,8 @@ const config = {
     physics: {
         default: 'arcade',
         arcade: {
-            // gravity: { y: 200 }
+            // gravity: { y: 200 },
+            debug: true
         }
     },
     scene: EnemyTurn
