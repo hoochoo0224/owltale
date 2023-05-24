@@ -47,7 +47,6 @@ class EnemyTurn extends Phaser.Scene {
         Phaser.Actions.PlaceOnRectangle(this.wall.getChildren(), new Phaser.Geom.Rectangle(84, 84, 616, 416));
         this.wall.refresh();
         // collider
-        game.physics.arcade.enable([this.mario, this.enemy]);
         this.walls.setAll('body.allowGravity', false);
         this.walls.setAll('body.immovable', true);
         // this.physics.add.collider(this.player, this.wall);
