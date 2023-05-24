@@ -34,22 +34,13 @@ class EnemyTurn extends Phaser.Scene {
         this.player.setImmovable();
         this.speed = 5;
         // wall
-        // this.wall = this.physics.add.staticGroup({
-        //     key: "wall",
-        //     frameQuantity: 4
-        // });
-        this.walls = game.add.group();
-        this.walls.enableBody = true;
-        this.downWallH = game.add.sprite(0, 540, 'wall', 0, this.walls);
-        this.UpWallH = game.add.sprite(0, 0, 'wall', 0, this.walls);
-        this.leftWallW = game.add.sprite(0,0, 'wall', 0, this.walls);
-        this.rightWallW = game.add.sprite(870,0, 'wall', 0, this.walls);
+        this.wall = this.physics.add.staticGroup();
+        this.wall.create(320, 350, 'wall');
+        this.wall.create(320, 500, 'wall');
         Phaser.Actions.PlaceOnRectangle(this.wall.getChildren(), new Phaser.Geom.Rectangle(84, 84, 616, 416));
         this.wall.refresh();
         // collider
-        this.walls.setAll('body.allowGravity', false);
-        this.walls.setAll('body.immovable', true);
-        // this.physics.add.collider(this.player, this.wall);
+        this.physics.add.collider(this.player, this.wall);
     }
 
     update() {
