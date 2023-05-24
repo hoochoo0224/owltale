@@ -21,6 +21,8 @@ class EnemyTurn extends Phaser.Scene {
     }
     
     create () {
+        this.physics.startSystem(Phaser.Physics.ARCADE);
+
         this.up = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
         this.down = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
         this.left = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
@@ -32,18 +34,23 @@ class EnemyTurn extends Phaser.Scene {
         this.player.setImmovable();
         this.speed = 5;
         // wall
-        this.wall = this.physics.add.staticGroup({
-            key: "wall",
-            frameQuantity: 4
-        });
+        // this.wall = this.physics.add.staticGroup({
+        //     key: "wall",
+        //     frameQuantity: 4
+        // });
+        this.walls = game.add.group();
+        this.walls.enableBody = true;
+        this.downWallH = game.add.sprite(0, 540, 'wall', 0, this.walls);
+        this.UpWallH = game.add.sprite(0, 0, 'wall', 0, this.walls);
+        this.leftWallW = game.add.sprite(0,0, 'wall', 0, this.walls);
+        this.rightWallW = game.add.sprite(870,0, 'wall', 0, this.walls);
         Phaser.Actions.PlaceOnRectangle(this.wall.getChildren(), new Phaser.Geom.Rectangle(84, 84, 616, 416));
         this.wall.refresh();
-        // this.wall.create(400, 590, 'wall').setScale(0.3).refreshBody();
-        // this.wall.create(140, 400, 'wall').setScale(0.3).refreshBody();
-        // this.wall.create(50, 250, 'wall').setScale(0.3).refreshBody();
-        // this.wall.create(750, 220, 'wall').setScale(0.3).refreshBody();
         // collider
-        this.physics.add.collider(this.player, this.wall);
+        game.physics.arcade.enable([this.mario, this.enemy]);
+        this.walls.setAll('body.allowGravity', false);
+        this.walls.setAll('body.immovable', true);
+        // this.physics.add.collider(this.player, this.wall);
     }
 
     update() {
