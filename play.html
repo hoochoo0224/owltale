@@ -35,8 +35,8 @@ class EnemyTurn extends Phaser.Scene {
         this.speed = 5;
         // wall
         this.wall = this.physics.add.staticGroup();
-        this.wall.create(320, 350, 'wall');
-        this.wall.create(320, 500, 'wall');
+        this.wall.create(320, 350, 'wall').refresh();
+        this.wall.create(320, 500, 'wall').refresh();
         Phaser.Actions.PlaceOnRectangle(this.wall.getChildren(), new Phaser.Geom.Rectangle(84, 84, 616, 416));
         this.wall.refresh();
         // collider
